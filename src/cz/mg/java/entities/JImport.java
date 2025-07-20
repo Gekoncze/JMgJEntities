@@ -5,14 +5,16 @@ import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
 
-public @Entity class JImport implements JEntity {
+public @Entity class JImport implements JEntity, JCommentable {
     private List<String> path = new List<>();
+    private String comment;
 
     public JImport() {
     }
 
-    public JImport(List<String> path) {
+    public JImport(List<String> path, String comment) {
         this.path = path;
+        this.comment = comment;
     }
 
     @Required @Value
@@ -22,5 +24,15 @@ public @Entity class JImport implements JEntity {
 
     public void setPath(List<String> path) {
         this.path = path;
+    }
+
+    @Override
+    public @Required String getComment() {
+        return comment;
+    }
+
+    @Override
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

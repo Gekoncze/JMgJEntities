@@ -10,13 +10,14 @@ import cz.mg.collections.list.List;
 import cz.mg.java.entities.types.JType;
 import cz.mg.token.Token;
 
-public @Entity class JMethod implements JEntity, JAnnotable, JModifiable {
+public @Entity class JMethod implements JEntity, JAnnotable, JModifiable, JCommentable {
     private List<JAnnotation> annotations = new List<>();
     private List<JModifier> modifiers = new List<>();
     private JType output;
     private String name;
     private List<JVariable> input = new List<>();
     private List<Token> implementation;
+    private String comment;
 
     public JMethod() {
     }
@@ -27,7 +28,8 @@ public @Entity class JMethod implements JEntity, JAnnotable, JModifiable {
         JType output,
         String name,
         List<JVariable> input,
-        List<Token> implementation
+        List<Token> implementation,
+        String comment
     ) {
         this.annotations = annotations;
         this.modifiers = modifiers;
@@ -35,6 +37,7 @@ public @Entity class JMethod implements JEntity, JAnnotable, JModifiable {
         this.name = name;
         this.input = input;
         this.implementation = implementation;
+        this.comment = comment;
     }
 
     @Override
@@ -93,5 +96,15 @@ public @Entity class JMethod implements JEntity, JAnnotable, JModifiable {
 
     public void setImplementation(List<Token> implementation) {
         this.implementation = implementation;
+    }
+
+    @Override
+    public @Required String getComment() {
+        return comment;
+    }
+
+    @Override
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

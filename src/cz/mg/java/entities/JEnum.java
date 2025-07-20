@@ -21,7 +21,8 @@ public @Entity class JEnum extends JStructure {
         List<JInterface> interfaces,
         List<JVariable> variables,
         List<JMethod> methods,
-        List<JEnumEntry> entries
+        List<JEnumEntry> entries,
+        String comment
     ) {
         super(
             annotations,
@@ -31,7 +32,8 @@ public @Entity class JEnum extends JStructure {
             base,
             interfaces,
             variables,
-            methods
+            methods,
+            comment
         );
         this.entries = entries;
     }

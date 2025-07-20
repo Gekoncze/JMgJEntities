@@ -16,7 +16,8 @@ public @Entity class JClass extends JStructure {
         JStructure base,
         List<JInterface> interfaces,
         List<JVariable> variables,
-        List<JMethod> methods
+        List<JMethod> methods,
+        String comment
     ) {
         super(
             annotations,
@@ -26,7 +27,8 @@ public @Entity class JClass extends JStructure {
             base,
             interfaces,
             variables,
-            methods
+            methods,
+            comment
         );
     }
 }

@@ -9,11 +9,12 @@ import cz.mg.collections.list.List;
 
 import java.nio.file.Path;
 
-public @Entity class JFile {
+public @Entity class JFile implements JCommentable {
     private Path path;
     private JPackageLine packageLine;
     private List<JImport> imports = new List<>();
     private JStructure structure;
+    private String comment;
 
     public JFile() {
     }
@@ -22,12 +23,14 @@ public @Entity class JFile {
         Path path,
         JPackageLine packageLine,
         List<JImport> imports,
-        JStructure structure
+        JStructure structure,
+        String comment
     ) {
         this.path = path;
         this.packageLine = packageLine;
         this.imports = imports;
         this.structure = structure;
+        this.comment = comment;
     }
 
     @Required @Value
@@ -64,5 +67,15 @@ public @Entity class JFile {
 
     public void setStructure(JStructure structure) {
         this.structure = structure;
+    }
+
+    @Override
+    public @Required String getComment() {
+        return comment;
+    }
+
+    @Override
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

@@ -9,7 +9,7 @@ import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
 import cz.mg.java.entities.types.JTypeParameter;
 
-public abstract @Entity class JStructure implements JEntity, JNamed, JAnnotable, JModifiable {
+public abstract @Entity class JStructure implements JEntity, JNamed, JAnnotable, JModifiable, JCommentable {
     private List<JAnnotation> annotations = new List<>();
     private List<JModifier> modifiers = new List<>();
     private String name;
@@ -18,6 +18,7 @@ public abstract @Entity class JStructure implements JEntity, JNamed, JAnnotable,
     private List<JInterface> interfaces = new List<>();
     private List<JVariable> variables = new List<>();
     private List<JMethod> methods = new List<>();
+    private String comment;
 
     public JStructure() {
     }
@@ -30,7 +31,8 @@ public abstract @Entity class JStructure implements JEntity, JNamed, JAnnotable,
         JStructure base,
         List<JInterface> interfaces,
         List<JVariable> variables,
-        List<JMethod> methods
+        List<JMethod> methods,
+        String comment
     ) {
         this.annotations = annotations;
         this.modifiers = modifiers;
@@ -40,6 +42,7 @@ public abstract @Entity class JStructure implements JEntity, JNamed, JAnnotable,
         this.interfaces = interfaces;
         this.variables = variables;
         this.methods = methods;
+        this.comment = comment;
     }
 
     @Override
@@ -117,5 +120,15 @@ public abstract @Entity class JStructure implements JEntity, JNamed, JAnnotable,
 
     public void setMethods(List<JMethod> methods) {
         this.methods = methods;
+    }
+
+    @Override
+    public @Required String getComment() {
+        return comment;
+    }
+
+    @Override
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }
