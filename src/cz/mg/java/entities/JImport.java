@@ -1,6 +1,7 @@
 package cz.mg.java.entities;
 
 import cz.mg.annotations.classes.Entity;
+import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
@@ -27,7 +28,8 @@ public @Entity class JImport implements JEntity, JCommentable {
     }
 
     @Override
-    public @Required String getComment() {
+    @Optional @Value
+    public String getComment() {
         return comment;
     }
 

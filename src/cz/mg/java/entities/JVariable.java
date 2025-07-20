@@ -85,7 +85,8 @@ public @Entity class JVariable implements JEntity, JNamed, JAnnotable, JModifiab
     }
 
     @Override
-    public @Required String getComment() {
+    @Optional @Value
+    public String getComment() {w
         return comment;
     }
 

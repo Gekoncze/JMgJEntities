@@ -123,7 +123,8 @@ public abstract @Entity class JStructure implements JEntity, JNamed, JAnnotable,
     }
 
     @Override
-    public @Required String getComment() {
+    @Optional @Value
+    public String getComment() {
         return comment;
     }
 

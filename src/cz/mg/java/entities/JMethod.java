@@ -99,7 +99,8 @@ public @Entity class JMethod implements JEntity, JAnnotable, JModifiable, JComme
     }
 
     @Override
-    public @Required String getComment() {
+    @Optional @Value
+    public String getComment() {
         return comment;
     }
 

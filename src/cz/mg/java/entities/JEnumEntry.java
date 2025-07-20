@@ -41,7 +41,8 @@ public @Entity class JEnumEntry implements JEntity, JCommentable {
     }
 
     @Override
-    public @Required String getComment() {
+    @Optional @Value
+    public String getComment() {
         return comment;
     }
 

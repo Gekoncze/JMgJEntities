@@ -1,11 +1,11 @@
 package cz.mg.java.entities;
 
 import cz.mg.annotations.classes.Entity;
-import cz.mg.annotations.requirement.Required;
-import cz.mg.annotations.storage.Part;
+import cz.mg.annotations.requirement.Optional;
+import cz.mg.annotations.storage.Value;
 
 public @Entity interface JCommentable {
-    @Required @Part
+    @Optional @Value
     String getComment();
     void setComment(String comment);
 }

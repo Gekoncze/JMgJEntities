@@ -70,7 +70,8 @@ public @Entity class JFile implements JCommentable {
     }
 
     @Override
-    public @Required String getComment() {
+    @Optional @Value
+    public String getComment() {
         return comment;
     }
 

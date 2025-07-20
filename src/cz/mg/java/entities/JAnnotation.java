@@ -42,7 +42,8 @@ public @Entity class JAnnotation implements JEntity, JNamed, JCommentable {
     }
 
     @Override
-    public @Required String getComment() {
+    @Optional @Value
+    public String getComment() {
         return comment;
     }
 
