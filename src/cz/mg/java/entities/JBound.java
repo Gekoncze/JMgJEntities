@@ -7,13 +7,15 @@ import cz.mg.annotations.storage.Value;
 
 public @Entity class JBound {
     private String name;
+    private JSide side;
     private JType type;
 
     public JBound() {
     }
 
-    public JBound(String name, JType type) {
+    public JBound(String name, JSide side, JType type) {
         this.name = name;
+        this.side = side;
         this.type = type;
     }
 
@@ -26,6 +28,14 @@ public @Entity class JBound {
         this.name = name;
     }
 
+    @Optional @Value
+    public JSide getSide() {
+        return side;
+    }
+
+    public void setSide(JSide side) {
+        this.side = side;
+    }
 
     @Optional @Shared
     public JType getType() {
