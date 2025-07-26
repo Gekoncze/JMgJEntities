@@ -4,8 +4,7 @@ import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.Part;
 import cz.mg.annotations.storage.Value;
-
-import java.util.List;
+import cz.mg.collections.list.List;
 
 public @Entity class JGenericType implements JType {
     private String name;
