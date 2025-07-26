@@ -2,6 +2,7 @@ package cz.mg.java.entities;
 
 import cz.mg.annotations.classes.Entity;
 import cz.mg.collections.list.List;
+import cz.mg.java.entities.bounds.JBound;
 import cz.mg.token.Token;
 
 public @Entity class JConstructor extends JMethod {

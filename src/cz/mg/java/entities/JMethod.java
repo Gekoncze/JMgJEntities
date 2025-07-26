@@ -7,6 +7,7 @@ import cz.mg.annotations.storage.Part;
 import cz.mg.annotations.storage.Shared;
 import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
+import cz.mg.java.entities.bounds.JBound;
 import cz.mg.java.entities.interfaces.JAnnotable;
 import cz.mg.java.entities.interfaces.JCommentable;
 import cz.mg.java.entities.interfaces.JModifiable;

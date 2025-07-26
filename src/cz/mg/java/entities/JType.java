@@ -6,12 +6,17 @@ import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.Shared;
 import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
+import cz.mg.java.entities.bounds.JBound;
 
 public @Entity class JType implements JEntity {
     private String name;
     private List<JBound> bounds;
 
     public JType() {
+    }
+
+    public JType(String name) {
+        this.name = name;
     }
 
     public JType(String name, List<JBound> bounds) {

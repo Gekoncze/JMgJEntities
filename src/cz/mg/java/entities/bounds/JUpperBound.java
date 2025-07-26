@@ -1,22 +1,22 @@
-package cz.mg.java.entities;
+package cz.mg.java.entities.bounds;
 
 import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Optional;
+import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.Shared;
 import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
+import cz.mg.java.entities.JType;
 
-public @Entity class JBound {
+public @Entity class JUpperBound implements JBound {
     private String name;
-    private JSide side;
-    private List<JType> types;
+    private List<JType> types = new List<>();
 
-    public JBound() {
+    public JUpperBound() {
     }
 
-    public JBound(String name, JSide side, List<JType> types) {
+    public JUpperBound(String name, List<JType> types) {
         this.name = name;
-        this.side = side;
         this.types = types;
     }
 
@@ -29,16 +29,7 @@ public @Entity class JBound {
         this.name = name;
     }
 
-    @Optional @Value
-    public JSide getSide() {
-        return side;
-    }
-
-    public void setSide(JSide side) {
-        this.side = side;
-    }
-
-    @Optional @Shared
+    @Required @Shared
     public List<JType> getTypes() {
         return types;
     }

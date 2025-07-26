@@ -12,20 +12,20 @@ import java.nio.file.Path;
 
 public @Entity class JFile implements JCommentable {
     private Path path;
+    private String comment;
     private JPackageLine packageLine;
     private List<JImport> imports = new List<>();
     private JStructure structure;
-    private String comment;
 
     public JFile() {
     }
 
     public JFile(
         Path path,
+        String comment,
         JPackageLine packageLine,
         List<JImport> imports,
-        JStructure structure,
-        String comment
+        JStructure structure
     ) {
         this.path = path;
         this.packageLine = packageLine;
@@ -41,6 +41,17 @@ public @Entity class JFile implements JCommentable {
 
     public void setPath(Path path) {
         this.path = path;
+    }
+
+    @Override
+    @Optional @Value
+    public String getComment() {
+        return comment;
+    }
+
+    @Override
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     @Optional @Part
@@ -68,16 +79,5 @@ public @Entity class JFile implements JCommentable {
 
     public void setStructure(JStructure structure) {
         this.structure = structure;
-    }
-
-    @Override
-    @Optional @Value
-    public String getComment() {
-        return comment;
-    }
-
-    @Override
-    public void setComment(String comment) {
-        this.comment = comment;
     }
 }
