@@ -14,6 +14,11 @@ public @Entity class JType implements JEntity {
     public JType() {
     }
 
+    public JType(String name, List<JBound> bounds) {
+        this.name = name;
+        this.bounds = bounds;
+    }
+
     @Required @Value
     public String getName() {
         return name;
