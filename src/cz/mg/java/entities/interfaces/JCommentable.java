@@ -1,10 +1,11 @@
-package cz.mg.java.entities;
+package cz.mg.java.entities.interfaces;
 
 import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Value;
 
-public @Entity interface JNamed {
+public @Entity interface JCommentable {
     @Optional @Value
-    String getName();
+    String getComment();
+    void setComment(String comment);
 }

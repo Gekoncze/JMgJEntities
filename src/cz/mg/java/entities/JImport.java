@@ -5,6 +5,7 @@ import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
+import cz.mg.java.entities.interfaces.JCommentable;
 
 public @Entity class JImport implements JEntity, JCommentable {
     private List<String> path = new List<>();

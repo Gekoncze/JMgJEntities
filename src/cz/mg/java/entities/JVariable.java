@@ -7,10 +7,12 @@ import cz.mg.annotations.storage.Part;
 import cz.mg.annotations.storage.Shared;
 import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
-import cz.mg.java.entities.types.JType;
+import cz.mg.java.entities.interfaces.JAnnotable;
+import cz.mg.java.entities.interfaces.JCommentable;
+import cz.mg.java.entities.interfaces.JModifiable;
 import cz.mg.token.Token;
 
-public @Entity class JVariable implements JEntity, JNamed, JAnnotable, JModifiable, JCommentable {
+public @Entity class JVariable implements JEntity, JAnnotable, JModifiable, JCommentable {
     private List<JAnnotation> annotations = new List<>();
     private List<JModifier> modifiers = new List<>();
     private JType type;
@@ -65,8 +67,7 @@ public @Entity class JVariable implements JEntity, JNamed, JAnnotable, JModifiab
         this.type = type;
     }
 
-    @Override
-    @Optional @Value
+    @Required @Value
     public String getName() {
         return name;
     }

@@ -4,38 +4,36 @@ import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.Part;
 import cz.mg.collections.list.List;
-import cz.mg.java.entities.types.JTypeParameter;
 
 public @Entity class JEnum extends JStructure {
-    private List<JEnumEntry> entries;
+    private List<JEnumEntry> entries = new List<>();
+    private List<JConstructor> constructors = new List<>();
 
     public JEnum() {
     }
 
     public JEnum(
+        String comment,
         List<JAnnotation> annotations,
         List<JModifier> modifiers,
         String name,
-        List<JTypeParameter> typeParameters,
-        JStructure base,
-        List<JInterface> interfaces,
-        List<JVariable> variables,
-        List<JMethod> methods,
+        List<JType> interfaces,
         List<JEnumEntry> entries,
-        String comment
+        List<JVariable> fields,
+        List<JConstructor> constructors,
+        List<JMethod> methods
     ) {
         super(
+            comment,
             annotations,
             modifiers,
             name,
-            typeParameters,
-            base,
             interfaces,
-            variables,
-            methods,
-            comment
+            fields,
+            methods
         );
         this.entries = entries;
+        this.constructors = constructors;
     }
 
     @Required @Part
@@ -45,5 +43,14 @@ public @Entity class JEnum extends JStructure {
 
     public void setEntries(List<JEnumEntry> entries) {
         this.entries = entries;
+    }
+
+    @Required @Part
+    public List<JConstructor> getConstructors() {
+        return constructors;
+    }
+
+    public void setConstructors(List<JConstructor> constructors) {
+        this.constructors = constructors;
     }
 }

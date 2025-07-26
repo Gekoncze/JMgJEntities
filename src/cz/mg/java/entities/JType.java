@@ -1,21 +1,17 @@
-package cz.mg.java.entities.types;
+package cz.mg.java.entities;
 
 import cz.mg.annotations.classes.Entity;
+import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.Shared;
 import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
 
-public @Entity class JTypeParameter implements JType {
+public @Entity class JType implements JEntity {
     private String name;
-    private List<JType> bounds;
+    private List<JBound> bounds;
 
-    public JTypeParameter() {
-    }
-
-    public JTypeParameter(String name, List<JType> bounds) {
-        this.name = name;
-        this.bounds = bounds;
+    public JType() {
     }
 
     @Required @Value
@@ -27,12 +23,12 @@ public @Entity class JTypeParameter implements JType {
         this.name = name;
     }
 
-    @Required @Shared
-    public List<JType> getBounds() {
+    @Optional @Shared
+    public List<JBound> getBounds() {
         return bounds;
     }
 
-    public void setBounds(List<JType> bounds) {
+    public void setBounds(List<JBound> bounds) {
         this.bounds = bounds;
     }
 }

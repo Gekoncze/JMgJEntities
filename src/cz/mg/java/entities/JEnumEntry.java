@@ -6,6 +6,7 @@ import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.Shared;
 import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
+import cz.mg.java.entities.interfaces.JCommentable;
 import cz.mg.token.Token;
 
 public @Entity class JEnumEntry implements JEntity, JCommentable {

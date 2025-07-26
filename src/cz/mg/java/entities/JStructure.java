@@ -7,41 +7,48 @@ import cz.mg.annotations.storage.Link;
 import cz.mg.annotations.storage.Part;
 import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
-import cz.mg.java.entities.types.JTypeParameter;
+import cz.mg.java.entities.interfaces.JAnnotable;
+import cz.mg.java.entities.interfaces.JCommentable;
+import cz.mg.java.entities.interfaces.JModifiable;
 
-public abstract @Entity class JStructure implements JEntity, JNamed, JAnnotable, JModifiable, JCommentable {
+public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifiable, JCommentable {
+    private String comment;
     private List<JAnnotation> annotations = new List<>();
     private List<JModifier> modifiers = new List<>();
     private String name;
-    private List<JTypeParameter> typeParameters = new List<>();
-    private JStructure base;
-    private List<JInterface> interfaces = new List<>();
-    private List<JVariable> variables = new List<>();
+    private List<JType> interfaces = new List<>();
+    private List<JVariable> fields = new List<>();
     private List<JMethod> methods = new List<>();
-    private String comment;
 
     public JStructure() {
     }
 
     public JStructure(
+        String comment,
         List<JAnnotation> annotations,
         List<JModifier> modifiers,
         String name,
-        List<JTypeParameter> typeParameters,
-        JStructure base,
-        List<JInterface> interfaces,
-        List<JVariable> variables,
-        List<JMethod> methods,
-        String comment
+        List<JType> interfaces,
+        List<JVariable> fields,
+        List<JMethod> methods
     ) {
+        this.comment = comment;
         this.annotations = annotations;
         this.modifiers = modifiers;
         this.name = name;
-        this.typeParameters = typeParameters;
-        this.base = base;
         this.interfaces = interfaces;
-        this.variables = variables;
+        this.fields = fields;
         this.methods = methods;
+    }
+
+    @Override
+    @Optional @Value
+    public String getComment() {
+        return comment;
+    }
+
+    @Override
+    public void setComment(String comment) {
         this.comment = comment;
     }
 
@@ -67,7 +74,6 @@ public abstract @Entity class JStructure implements JEntity, JNamed, JAnnotable,
         this.modifiers = modifiers;
     }
 
-    @Override
     @Optional @Value
     public String getName() {
         return name;
@@ -77,40 +83,22 @@ public abstract @Entity class JStructure implements JEntity, JNamed, JAnnotable,
         this.name = name;
     }
 
-    @Required @Part
-    public List<JTypeParameter> getTypeParameters() {
-        return typeParameters;
-    }
-
-    public void setTypeParameters(List<JTypeParameter> typeParameters) {
-        this.typeParameters = typeParameters;
-    }
-
-    @Optional @Link
-    public JStructure getBase() {
-        return base;
-    }
-
-    public void setBase(JStructure base) {
-        this.base = base;
-    }
-
     @Required @Link
-    public List<JInterface> getInterfaces() {
+    public List<JType> getInterfaces() {
         return interfaces;
     }
 
-    public void setInterfaces(List<JInterface> interfaces) {
+    public void setInterfaces(List<JType> interfaces) {
         this.interfaces = interfaces;
     }
 
     @Required @Part
-    public List<JVariable> getVariables() {
-        return variables;
+    public List<JVariable> getFields() {
+        return fields;
     }
 
-    public void setVariables(List<JVariable> variables) {
-        this.variables = variables;
+    public void setFields(List<JVariable> fields) {
+        this.fields = fields;
     }
 
     @Required @Part
@@ -120,16 +108,5 @@ public abstract @Entity class JStructure implements JEntity, JNamed, JAnnotable,
 
     public void setMethods(List<JMethod> methods) {
         this.methods = methods;
-    }
-
-    @Override
-    @Optional @Value
-    public String getComment() {
-        return comment;
-    }
-
-    @Override
-    public void setComment(String comment) {
-        this.comment = comment;
     }
 }
