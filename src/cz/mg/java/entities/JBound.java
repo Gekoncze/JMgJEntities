@@ -4,19 +4,20 @@ import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.storage.Shared;
 import cz.mg.annotations.storage.Value;
+import cz.mg.collections.list.List;
 
 public @Entity class JBound {
     private String name;
     private JSide side;
-    private JType type;
+    private List<JType> types;
 
     public JBound() {
     }
 
-    public JBound(String name, JSide side, JType type) {
+    public JBound(String name, JSide side, List<JType> types) {
         this.name = name;
         this.side = side;
-        this.type = type;
+        this.types = types;
     }
 
     @Optional @Value
@@ -38,11 +39,11 @@ public @Entity class JBound {
     }
 
     @Optional @Shared
-    public JType getType() {
-        return type;
+    public List<JType> getTypes() {
+        return types;
     }
 
-    public void setType(JType type) {
-        this.type = type;
+    public void setTypes(List<JType> types) {
+        this.types = types;
     }
 }

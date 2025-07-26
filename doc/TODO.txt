@@ -6,3 +6,4 @@
 
 ### LATER ###
     add support for annotation definitions
+    add support for records
