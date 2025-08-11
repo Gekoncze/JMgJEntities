@@ -3,9 +3,7 @@ package cz.mg.java.entities;
 import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.requirement.Required;
-import cz.mg.annotations.storage.Part;
-import cz.mg.annotations.storage.Shared;
-import cz.mg.annotations.storage.Value;
+import cz.mg.annotations.storage.*;
 import cz.mg.collections.list.List;
 import cz.mg.java.entities.interfaces.JAnnotable;
 import cz.mg.java.entities.interfaces.JCommentable;
@@ -38,7 +36,7 @@ public @Entity class JVariable implements JEntity, JAnnotable, JModifiable, JCom
     }
 
     @Override
-    @Required @Part
+    @Required @Parts
     public List<JAnnotation> getAnnotations() {
         return annotations;
     }
@@ -48,7 +46,7 @@ public @Entity class JVariable implements JEntity, JAnnotable, JModifiable, JCom
     }
 
     @Override
-    @Required @Part
+    @Required @Parts
     public List<JModifier> getModifiers() {
         return modifiers;
     }
@@ -58,7 +56,7 @@ public @Entity class JVariable implements JEntity, JAnnotable, JModifiable, JCom
         this.modifiers = modifiers;
     }
 
-    @Required @Shared
+    @Required @Common
     public JType getType() {
         return type;
     }
@@ -76,7 +74,7 @@ public @Entity class JVariable implements JEntity, JAnnotable, JModifiable, JCom
         this.name = name;
     }
 
-    @Optional @Shared
+    @Optional @Commons
     public List<Token> getExpression() {
         return expression;
     }

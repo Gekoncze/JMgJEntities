@@ -3,7 +3,7 @@ package cz.mg.java.entities;
 import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.requirement.Required;
-import cz.mg.annotations.storage.Part;
+import cz.mg.annotations.storage.Parts;
 import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
 import cz.mg.java.entities.interfaces.JCommentable;
@@ -32,7 +32,7 @@ public @Entity class JAnnotation implements JEntity, JCommentable {
         this.name = name;
     }
 
-    @Optional @Part
+    @Optional @Parts
     public List<Token> getExpression() {
         return expression;
     }

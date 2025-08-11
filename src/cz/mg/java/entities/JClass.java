@@ -3,8 +3,8 @@ package cz.mg.java.entities;
 import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.requirement.Required;
-import cz.mg.annotations.storage.Part;
-import cz.mg.annotations.storage.Shared;
+import cz.mg.annotations.storage.Common;
+import cz.mg.annotations.storage.Parts;
 import cz.mg.collections.list.List;
 
 public @Entity class JClass extends JStructure {
@@ -18,6 +18,7 @@ public @Entity class JClass extends JStructure {
         String comment,
         List<JAnnotation> annotations,
         List<JModifier> modifiers,
+        List<String> customModifiers,
         String name,
         JType base,
         List<JType> interfaces,
@@ -29,6 +30,7 @@ public @Entity class JClass extends JStructure {
             comment,
             annotations,
             modifiers,
+            customModifiers,
             name,
             interfaces,
             fields,
@@ -38,7 +40,7 @@ public @Entity class JClass extends JStructure {
         this.constructors = constructors;
     }
 
-    @Optional @Shared
+    @Optional @Common
     public JType getBase() {
         return base;
     }
@@ -47,7 +49,7 @@ public @Entity class JClass extends JStructure {
         this.base = base;
     }
 
-    @Required @Part
+    @Required @Parts
     public List<JConstructor> getConstructors() {
         return constructors;
     }

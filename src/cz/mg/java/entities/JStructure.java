@@ -3,9 +3,7 @@ package cz.mg.java.entities;
 import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.requirement.Required;
-import cz.mg.annotations.storage.Link;
-import cz.mg.annotations.storage.Part;
-import cz.mg.annotations.storage.Value;
+import cz.mg.annotations.storage.*;
 import cz.mg.collections.list.List;
 import cz.mg.java.entities.interfaces.JAnnotable;
 import cz.mg.java.entities.interfaces.JCommentable;
@@ -15,6 +13,7 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
     private String comment;
     private List<JAnnotation> annotations = new List<>();
     private List<JModifier> modifiers = new List<>();
+    private List<String> customModifiers = new List<>();
     private String name;
     private List<JType> interfaces = new List<>();
     private List<JVariable> fields = new List<>();
@@ -27,6 +26,7 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
         String comment,
         List<JAnnotation> annotations,
         List<JModifier> modifiers,
+        List<String> customModifiers,
         String name,
         List<JType> interfaces,
         List<JVariable> fields,
@@ -35,6 +35,7 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
         this.comment = comment;
         this.annotations = annotations;
         this.modifiers = modifiers;
+        this.customModifiers = customModifiers;
         this.name = name;
         this.interfaces = interfaces;
         this.fields = fields;
@@ -53,7 +54,7 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
     }
 
     @Override
-    @Required @Part
+    @Required @Parts
     public List<JAnnotation> getAnnotations() {
         return annotations;
     }
@@ -64,7 +65,7 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
     }
 
     @Override
-    @Required @Value
+    @Required @Values
     public List<JModifier> getModifiers() {
         return modifiers;
     }
@@ -72,6 +73,15 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
     @Override
     public void setModifiers(List<JModifier> modifiers) {
         this.modifiers = modifiers;
+    }
+
+    @Required @Values
+    public List<String> getCustomModifiers() {
+        return customModifiers;
+    }
+
+    public void setCustomModifiers(List<String> customModifiers) {
+        this.customModifiers = customModifiers;
     }
 
     @Optional @Value
@@ -83,7 +93,7 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
         this.name = name;
     }
 
-    @Required @Link
+    @Required @Links
     public List<JType> getInterfaces() {
         return interfaces;
     }
@@ -92,7 +102,7 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
         this.interfaces = interfaces;
     }
 
-    @Required @Part
+    @Required @Parts
     public List<JVariable> getFields() {
         return fields;
     }
@@ -101,7 +111,7 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
         this.fields = fields;
     }
 
-    @Required @Part
+    @Required @Parts
     public List<JMethod> getMethods() {
         return methods;
     }

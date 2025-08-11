@@ -3,7 +3,7 @@ package cz.mg.java.entities.bounds;
 import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.requirement.Required;
-import cz.mg.annotations.storage.Shared;
+import cz.mg.annotations.storage.Commons;
 import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
 import cz.mg.java.entities.JType;
@@ -29,7 +29,7 @@ public @Entity class JUpperBound implements JBound {
         this.name = name;
     }
 
-    @Required @Shared
+    @Required @Commons
     public List<JType> getTypes() {
         return types;
     }

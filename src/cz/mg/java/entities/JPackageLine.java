@@ -4,6 +4,7 @@ import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.Value;
+import cz.mg.annotations.storage.Values;
 import cz.mg.collections.list.List;
 import cz.mg.java.entities.interfaces.JCommentable;
 
@@ -19,8 +20,7 @@ public @Entity class JPackageLine implements JEntity, JCommentable {
         this.comment = comment;
     }
 
-    @Required
-    @Value
+    @Required @Values
     public List<String> getPath() {
         return path;
     }

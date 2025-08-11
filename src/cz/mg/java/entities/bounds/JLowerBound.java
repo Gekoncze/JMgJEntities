@@ -2,7 +2,7 @@ package cz.mg.java.entities.bounds;
 
 import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Required;
-import cz.mg.annotations.storage.Shared;
+import cz.mg.annotations.storage.Common;
 import cz.mg.java.entities.JType;
 
 public @Entity class JLowerBound implements JBound {
@@ -15,7 +15,7 @@ public @Entity class JLowerBound implements JBound {
         this.type = type;
     }
 
-    @Required @Shared
+    @Required @Common
     public JType getType() {
         return type;
     }

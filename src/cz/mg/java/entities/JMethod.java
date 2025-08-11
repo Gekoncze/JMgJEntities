@@ -3,9 +3,7 @@ package cz.mg.java.entities;
 import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.requirement.Required;
-import cz.mg.annotations.storage.Part;
-import cz.mg.annotations.storage.Shared;
-import cz.mg.annotations.storage.Value;
+import cz.mg.annotations.storage.*;
 import cz.mg.collections.list.List;
 import cz.mg.java.entities.bounds.JBound;
 import cz.mg.java.entities.interfaces.JAnnotable;
@@ -58,7 +56,7 @@ public @Entity class JMethod implements JEntity, JAnnotable, JModifiable, JComme
     }
 
     @Override
-    @Required @Part
+    @Required @Parts
     public List<JAnnotation> getAnnotations() {
         return annotations;
     }
@@ -69,7 +67,7 @@ public @Entity class JMethod implements JEntity, JAnnotable, JModifiable, JComme
     }
 
     @Override
-    @Required @Value
+    @Required @Values
     public List<JModifier> getModifiers() {
         return modifiers;
     }
@@ -79,7 +77,7 @@ public @Entity class JMethod implements JEntity, JAnnotable, JModifiable, JComme
         this.modifiers = modifiers;
     }
 
-    @Required @Shared
+    @Required @Commons
     public List<JBound> getBounds() {
         return bounds;
     }
@@ -88,7 +86,7 @@ public @Entity class JMethod implements JEntity, JAnnotable, JModifiable, JComme
         this.bounds = bounds;
     }
 
-    @Optional @Shared
+    @Optional @Common
     public JType getOutput() {
         return output;
     }
@@ -106,7 +104,7 @@ public @Entity class JMethod implements JEntity, JAnnotable, JModifiable, JComme
         this.name = name;
     }
 
-    @Required @Part
+    @Required @Parts
     public List<JVariable> getInput() {
         return input;
     }
@@ -115,7 +113,7 @@ public @Entity class JMethod implements JEntity, JAnnotable, JModifiable, JComme
         this.input = input;
     }
 
-    @Optional @Shared
+    @Optional @Commons
     public List<Token> getImplementation() {
         return implementation;
     }
