@@ -13,7 +13,6 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
     private String comment;
     private List<JAnnotation> annotations = new List<>();
     private List<JModifier> modifiers = new List<>();
-    private List<String> customModifiers = new List<>();
     private String name;
     private List<JType> interfaces = new List<>();
     private List<JVariable> fields = new List<>();
@@ -26,7 +25,6 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
         String comment,
         List<JAnnotation> annotations,
         List<JModifier> modifiers,
-        List<String> customModifiers,
         String name,
         List<JType> interfaces,
         List<JVariable> fields,
@@ -35,7 +33,6 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
         this.comment = comment;
         this.annotations = annotations;
         this.modifiers = modifiers;
-        this.customModifiers = customModifiers;
         this.name = name;
         this.interfaces = interfaces;
         this.fields = fields;
@@ -73,15 +70,6 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
     @Override
     public void setModifiers(List<JModifier> modifiers) {
         this.modifiers = modifiers;
-    }
-
-    @Required @Values
-    public List<String> getCustomModifiers() {
-        return customModifiers;
-    }
-
-    public void setCustomModifiers(List<String> customModifiers) {
-        this.customModifiers = customModifiers;
     }
 
     @Optional @Value
