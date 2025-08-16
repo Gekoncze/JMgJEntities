@@ -17,6 +17,10 @@ public @Entity class JAnnotation implements JEntity, JCommentable {
     public JAnnotation() {
     }
 
+    public JAnnotation(String name) {
+        this.name = name;
+    }
+
     public JAnnotation(String name, List<Token> expression, String comment) {
         this.name = name;
         this.expression = expression;

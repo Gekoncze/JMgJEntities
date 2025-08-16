@@ -23,12 +23,26 @@ public @Entity class JVariable implements JEntity, JAnnotable, JModifiable, JCom
 
     public JVariable(
         List<JAnnotation> annotations,
+        List<JModifier> modifiers,
+        JType type,
+        String name
+    ) {
+        this.annotations = annotations;
+        this.modifiers = modifiers;
+        this.type = type;
+        this.name = name;
+    }
+
+    public JVariable(
+        List<JAnnotation> annotations,
+        List<JModifier> modifiers,
         JType type,
         String name,
         List<Token> expression,
         String comment
     ) {
         this.annotations = annotations;
+        this.modifiers = modifiers;
         this.type = type;
         this.name = name;
         this.expression = expression;
