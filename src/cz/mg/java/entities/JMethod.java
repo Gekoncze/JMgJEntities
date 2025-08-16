@@ -1,6 +1,7 @@
 package cz.mg.java.entities;
 
 import cz.mg.annotations.classes.Entity;
+import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.*;
@@ -95,7 +96,7 @@ public @Entity class JMethod implements JEntity, JAnnotable, JModifiable, JComme
         this.output = output;
     }
 
-    @Optional @Value
+    @Mandatory @Value
     public String getName() {
         return name;
     }
