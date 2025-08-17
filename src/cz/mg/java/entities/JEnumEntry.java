@@ -6,21 +6,18 @@ import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.Commons;
 import cz.mg.annotations.storage.Value;
 import cz.mg.collections.list.List;
-import cz.mg.java.entities.interfaces.JCommentable;
 import cz.mg.token.Token;
 
-public @Entity class JEnumEntry implements JEntity, JCommentable {
+public @Entity class JEnumEntry implements JEntity {
     private String name;
     private List<Token> expression;
-    private String comment;
 
     public JEnumEntry() {
     }
 
-    public JEnumEntry(String name, List<Token> expression, String comment) {
+    public JEnumEntry(String name, List<Token> expression) {
         this.name = name;
         this.expression = expression;
-        this.comment = comment;
     }
 
     @Required @Value
@@ -39,16 +36,5 @@ public @Entity class JEnumEntry implements JEntity, JCommentable {
 
     public void setExpression(List<Token> expression) {
         this.expression = expression;
-    }
-
-    @Override
-    @Optional @Value
-    public String getComment() {
-        return comment;
-    }
-
-    @Override
-    public void setComment(String comment) {
-        this.comment = comment;
     }
 }
