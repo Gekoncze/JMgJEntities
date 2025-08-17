@@ -5,5 +5,7 @@
     ...
 
 ### LATER ###
-    add support for annotation definitions (think of a name for the class, possibly JAnnotype)
+    add support for annotation definitions
+        think of a name for the class, possibly JAnnotype
     add support for records
+    add support for inner classes
