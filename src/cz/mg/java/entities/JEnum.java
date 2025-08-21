@@ -4,6 +4,7 @@ import cz.mg.annotations.classes.Entity;
 import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.Parts;
 import cz.mg.collections.list.List;
+import cz.mg.java.entities.bounds.JBound;
 
 public @Entity class JEnum extends JStructure {
     private List<JEnumEntry> entries = new List<>();
@@ -17,6 +18,7 @@ public @Entity class JEnum extends JStructure {
         List<JAnnotation> annotations,
         List<JModifier> modifiers,
         String name,
+        List<JBound> bounds,
         List<JType> interfaces,
         List<JEnumEntry> entries,
         List<JVariable> fields,
@@ -28,6 +30,7 @@ public @Entity class JEnum extends JStructure {
             annotations,
             modifiers,
             name,
+            bounds,
             interfaces,
             fields,
             methods

@@ -1,10 +1,12 @@
 package cz.mg.java.entities;
 
 import cz.mg.annotations.classes.Entity;
+import cz.mg.annotations.requirement.Mandatory;
 import cz.mg.annotations.requirement.Optional;
 import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.*;
 import cz.mg.collections.list.List;
+import cz.mg.java.entities.bounds.JBound;
 import cz.mg.java.entities.interfaces.JAnnotable;
 import cz.mg.java.entities.interfaces.JCommentable;
 import cz.mg.java.entities.interfaces.JModifiable;
@@ -14,6 +16,7 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
     private List<JAnnotation> annotations = new List<>();
     private List<JModifier> modifiers = new List<>();
     private String name;
+    private List<JBound> bounds = new List<>();
     private List<JType> interfaces = new List<>();
     private List<JVariable> fields = new List<>();
     private List<JMethod> methods = new List<>();
@@ -26,6 +29,7 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
         List<JAnnotation> annotations,
         List<JModifier> modifiers,
         String name,
+        List<JBound> bounds,
         List<JType> interfaces,
         List<JVariable> fields,
         List<JMethod> methods
@@ -34,6 +38,7 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
         this.annotations = annotations;
         this.modifiers = modifiers;
         this.name = name;
+        this.bounds = bounds;
         this.interfaces = interfaces;
         this.fields = fields;
         this.methods = methods;
@@ -79,6 +84,15 @@ public abstract @Entity class JStructure implements JEntity, JAnnotable, JModifi
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Mandatory @Parts
+    public List<JBound> getBounds() {
+        return bounds;
+    }
+
+    public void setBounds(List<JBound> bounds) {
+        this.bounds = bounds;
     }
 
     @Required @Links

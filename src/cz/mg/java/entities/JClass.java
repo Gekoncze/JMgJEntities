@@ -6,6 +6,7 @@ import cz.mg.annotations.requirement.Required;
 import cz.mg.annotations.storage.Common;
 import cz.mg.annotations.storage.Parts;
 import cz.mg.collections.list.List;
+import cz.mg.java.entities.bounds.JBound;
 
 public @Entity class JClass extends JStructure {
     private JType base;
@@ -19,6 +20,7 @@ public @Entity class JClass extends JStructure {
         List<JAnnotation> annotations,
         List<JModifier> modifiers,
         String name,
+        List<JBound> bounds,
         JType base,
         List<JType> interfaces,
         List<JVariable> fields,
@@ -30,6 +32,7 @@ public @Entity class JClass extends JStructure {
             annotations,
             modifiers,
             name,
+            bounds,
             interfaces,
             fields,
             methods
