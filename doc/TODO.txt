@@ -5,6 +5,6 @@
     ...
 
 ### LATER ###
-    add support for annotation definitions
-        think of a name for the class, possibly JAnnotype
+    add support for annotation definitions (JAnnotype)
     add support for inner classes
+    add support for static initializers
