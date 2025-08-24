@@ -21,9 +21,11 @@ public @Entity class JType implements JEntity {
         this.name = name;
     }
 
-    public JType(String name, List<JBound> bounds) {
+    public JType(String name, List<JBound> bounds, int dimensions, boolean varargs) {
         this.name = name;
         this.bounds = bounds;
+        this.dimensions = dimensions;
+        this.varargs = varargs;
     }
 
     @Required @Value
