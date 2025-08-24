@@ -9,11 +9,12 @@ import cz.mg.collections.list.List;
 import cz.mg.java.entities.bounds.JBound;
 
 public @Entity class JEnum extends JStructure {
-    private List<JEnumEntry> entries = new List<>();
-    private List<JConstructor> constructors = new List<>();
     private List<JBound> bounds = new List<>();
     private List<JType> interfaces = new List<>();
+    private List<JEnumEntry> entries = new List<>();
     private List<JVariable> fields = new List<>();
+    private List<JInitializer> initializers = new List<>();
+    private List<JConstructor> constructors = new List<>();
     private List<JMethod> methods = new List<>();
 
     public JEnum() {
@@ -28,6 +29,7 @@ public @Entity class JEnum extends JStructure {
         List<JType> interfaces,
         List<JEnumEntry> entries,
         List<JVariable> fields,
+        List<JInitializer> initializers,
         List<JConstructor> constructors,
         List<JMethod> methods
     ) {
@@ -41,6 +43,7 @@ public @Entity class JEnum extends JStructure {
         this.interfaces = interfaces;
         this.entries = entries;
         this.fields = fields;
+        this.initializers = initializers;
         this.constructors = constructors;
         this.methods = methods;
     }
@@ -79,6 +82,15 @@ public @Entity class JEnum extends JStructure {
 
     public void setFields(List<JVariable> fields) {
         this.fields = fields;
+    }
+
+    @Required @Parts
+    public List<JInitializer> getInitializers() {
+        return initializers;
+    }
+
+    public void setInitializers(List<JInitializer> initializers) {
+        this.initializers = initializers;
     }
 
     @Required @Parts

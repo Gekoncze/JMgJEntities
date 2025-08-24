@@ -13,6 +13,7 @@ public @Entity class JRecord extends JStructure {
     private List<JVariable> properties = new List<>();
     private List<JType> interfaces = new List<>();
     private List<JVariable> fields = new List<>();
+    private List<JInitializer> initializers = new List<>();
     private List<JConstructor> constructors = new List<>();
     private List<JMethod> methods = new List<>();
 
@@ -28,6 +29,7 @@ public @Entity class JRecord extends JStructure {
         List<JVariable> properties,
         List<JType> interfaces,
         List<JVariable> fields,
+        List<JInitializer> initializers,
         List<JConstructor> constructors,
         List<JMethod> methods
     ) {
@@ -41,6 +43,7 @@ public @Entity class JRecord extends JStructure {
         this.properties = properties;
         this.interfaces = interfaces;
         this.fields = fields;
+        this.initializers = initializers;
         this.constructors = constructors;
         this.methods = methods;
     }
@@ -79,6 +82,15 @@ public @Entity class JRecord extends JStructure {
 
     public void setFields(List<JVariable> fields) {
         this.fields = fields;
+    }
+
+    @Required @Parts
+    public List<JInitializer> getInitializers() {
+        return initializers;
+    }
+
+    public void setInitializers(List<JInitializer> initializers) {
+        this.initializers = initializers;
     }
 
     @Required @Parts
