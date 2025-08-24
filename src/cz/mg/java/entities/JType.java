@@ -11,7 +11,8 @@ import cz.mg.java.entities.bounds.JBound;
 public @Entity class JType implements JEntity {
     private String name;
     private List<JBound> bounds;
-    private JArrayType arrayType;
+    private int dimensions;
+    private boolean varargs;
 
     public JType() {
     }
@@ -43,12 +44,21 @@ public @Entity class JType implements JEntity {
         this.bounds = bounds;
     }
 
-    @Optional @Value
-    public JArrayType getArrayType() {
-        return arrayType;
+    @Required @Value
+    public int getDimensions() {
+        return dimensions;
     }
 
-    public void setArrayType(JArrayType arrayType) {
-        this.arrayType = arrayType;
+    public void setDimensions(int dimensions) {
+        this.dimensions = dimensions;
+    }
+
+    @Required @Value
+    public boolean isVarargs() {
+        return varargs;
+    }
+
+    public void setVarargs(boolean varargs) {
+        this.varargs = varargs;
     }
 }
