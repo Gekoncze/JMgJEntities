@@ -16,6 +16,7 @@ public @Entity class JEnum extends JStructure {
     private List<JInitializer> initializers = new List<>();
     private List<JConstructor> constructors = new List<>();
     private List<JMethod> methods = new List<>();
+    private List<JStructure> structures = new List<>();
 
     public JEnum() {
     }
@@ -31,7 +32,8 @@ public @Entity class JEnum extends JStructure {
         List<JVariable> fields,
         List<JInitializer> initializers,
         List<JConstructor> constructors,
-        List<JMethod> methods
+        List<JMethod> methods,
+        List<JStructure> structures
     ) {
         super(
             comment,
@@ -46,6 +48,7 @@ public @Entity class JEnum extends JStructure {
         this.initializers = initializers;
         this.constructors = constructors;
         this.methods = methods;
+        this.structures = structures;
     }
 
     @Mandatory @Parts
@@ -109,5 +112,14 @@ public @Entity class JEnum extends JStructure {
 
     public void setMethods(List<JMethod> methods) {
         this.methods = methods;
+    }
+
+    @Required @Parts
+    public List<JStructure> getStructures() {
+        return structures;
+    }
+
+    public void setStructures(List<JStructure> structures) {
+        this.structures = structures;
     }
 }

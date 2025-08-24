@@ -13,6 +13,7 @@ public @Entity class JInterface extends JStructure {
     private List<JType> interfaces = new List<>();
     private List<JVariable> fields = new List<>();
     private List<JMethod> methods = new List<>();
+    private List<JStructure> structures = new List<>();
 
     public JInterface() {
     }
@@ -25,7 +26,8 @@ public @Entity class JInterface extends JStructure {
         List<JBound> bounds,
         List<JType> interfaces,
         List<JVariable> fields,
-        List<JMethod> methods
+        List<JMethod> methods,
+        List<JStructure> structures
     ) {
         super(
             comment,
@@ -37,6 +39,7 @@ public @Entity class JInterface extends JStructure {
         this.interfaces = interfaces;
         this.fields = fields;
         this.methods = methods;
+        this.structures = structures;
     }
 
     @Mandatory @Parts
@@ -73,5 +76,14 @@ public @Entity class JInterface extends JStructure {
 
     public void setMethods(List<JMethod> methods) {
         this.methods = methods;
+    }
+
+    @Required @Parts
+    public List<JStructure> getStructures() {
+        return structures;
+    }
+
+    public void setStructures(List<JStructure> structures) {
+        this.structures = structures;
     }
 }

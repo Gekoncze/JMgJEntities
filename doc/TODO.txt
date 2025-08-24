@@ -5,5 +5,4 @@
     ...
 
 ### LATER ###
-    add support for inner classes
-
+    ...
