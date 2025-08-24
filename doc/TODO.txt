@@ -5,6 +5,5 @@
     ...
 
 ### LATER ###
-    add support for annotation definitions (JAnnotype)
     add support for inner classes
     add support for static initializers
