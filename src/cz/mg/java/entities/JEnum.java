@@ -9,7 +9,6 @@ import cz.mg.collections.list.List;
 import cz.mg.java.entities.bounds.JBound;
 
 public @Entity class JEnum extends JStructure {
-    private List<JBound> bounds = new List<>();
     private List<JType> interfaces = new List<>();
     private List<JEnumEntry> entries = new List<>();
     private List<JVariable> fields = new List<>();
@@ -26,7 +25,6 @@ public @Entity class JEnum extends JStructure {
         List<JAnnotation> annotations,
         List<JModifier> modifiers,
         String name,
-        List<JBound> bounds,
         List<JType> interfaces,
         List<JEnumEntry> entries,
         List<JVariable> fields,
@@ -41,7 +39,6 @@ public @Entity class JEnum extends JStructure {
             modifiers,
             name
         );
-        this.bounds = bounds;
         this.interfaces = interfaces;
         this.entries = entries;
         this.fields = fields;
@@ -49,15 +46,6 @@ public @Entity class JEnum extends JStructure {
         this.constructors = constructors;
         this.methods = methods;
         this.structures = structures;
-    }
-
-    @Mandatory @Parts
-    public List<JBound> getBounds() {
-        return bounds;
-    }
-
-    public void setBounds(List<JBound> bounds) {
-        this.bounds = bounds;
     }
 
     @Required @Links
