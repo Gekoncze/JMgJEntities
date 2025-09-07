@@ -20,7 +20,7 @@ public @Entity class JConstructor implements JEntity, JAnnotable, JModifiable, J
     private List<JModifier> modifiers = new List<>();
     private List<JBound> bounds = new List<>();
     private String name;
-    private List<JVariable> input = new List<>();
+    private List<JVariable> input;
     private List<Token> implementation;
 
     public JConstructor() {
