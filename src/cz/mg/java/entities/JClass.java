@@ -14,6 +14,7 @@ public @Entity class JClass extends JStructure {
     private List<JBound> bounds = new List<>();
     private JType base;
     private List<JType> interfaces = new List<>();
+    private List<JType> permits = new List<>();
     private List<JVariable> fields = new List<>();
     private List<JInitializer> initializers = new List<>();
     private List<JConstructor> constructors = new List<>();
@@ -31,6 +32,7 @@ public @Entity class JClass extends JStructure {
         List<JBound> bounds,
         JType base,
         List<JType> interfaces,
+        List<JType> permits,
         List<JVariable> fields,
         List<JInitializer> initializers,
         List<JConstructor> constructors,
@@ -46,6 +48,7 @@ public @Entity class JClass extends JStructure {
         this.bounds = bounds;
         this.base = base;
         this.interfaces = interfaces;
+        this.permits = permits;
         this.fields = fields;
         this.initializers = initializers;
         this.constructors = constructors;
@@ -78,6 +81,15 @@ public @Entity class JClass extends JStructure {
 
     public void setInterfaces(List<JType> interfaces) {
         this.interfaces = interfaces;
+    }
+
+    @Required @Links
+    public List<JType> getPermits() {
+        return permits;
+    }
+
+    public void setPermits(List<JType> permits) {
+        this.permits = permits;
     }
 
     @Required @Parts

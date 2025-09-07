@@ -7,6 +7,7 @@ public enum JModifier {
     PRIVATE,
     PROTECTED,
     PUBLIC,
+    SEALED,
     STATIC,
     VOLATILE
 }

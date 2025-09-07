@@ -11,6 +11,7 @@ import cz.mg.java.entities.bounds.JBound;
 public @Entity class JInterface extends JStructure {
     private List<JBound> bounds = new List<>();
     private List<JType> interfaces = new List<>();
+    private List<JType> permits = new List<>();
     private List<JVariable> fields = new List<>();
     private List<JMethod> methods = new List<>();
     private List<JStructure> structures = new List<>();
@@ -25,6 +26,7 @@ public @Entity class JInterface extends JStructure {
         String name,
         List<JBound> bounds,
         List<JType> interfaces,
+        List<JType> permits,
         List<JVariable> fields,
         List<JMethod> methods,
         List<JStructure> structures
@@ -37,6 +39,7 @@ public @Entity class JInterface extends JStructure {
         );
         this.bounds = bounds;
         this.interfaces = interfaces;
+        this.permits = permits;
         this.fields = fields;
         this.methods = methods;
         this.structures = structures;
@@ -58,6 +61,15 @@ public @Entity class JInterface extends JStructure {
 
     public void setInterfaces(List<JType> interfaces) {
         this.interfaces = interfaces;
+    }
+
+    @Required @Links
+    public List<JType> getPermits() {
+        return permits;
+    }
+
+    public void setPermits(List<JType> permits) {
+        this.permits = permits;
     }
 
     @Required @Parts
