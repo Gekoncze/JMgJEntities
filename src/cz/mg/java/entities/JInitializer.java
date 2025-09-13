@@ -7,7 +7,7 @@ import cz.mg.collections.list.List;
 import cz.mg.token.Token;
 
 public @Entity class JInitializer {
-    private List<Token> implementation;
+    private List<Token> implementation = new List<>();
 
     public JInitializer() {
     }
