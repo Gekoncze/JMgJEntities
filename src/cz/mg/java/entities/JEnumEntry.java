@@ -15,6 +15,10 @@ public @Entity class JEnumEntry implements JEntity {
     public JEnumEntry() {
     }
 
+    public JEnumEntry(String name) {
+        this.name = name;
+    }
+
     public JEnumEntry(String name, List<Token> expression) {
         this.name = name;
         this.expression = expression;
